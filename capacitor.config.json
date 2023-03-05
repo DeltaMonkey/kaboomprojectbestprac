@@ -1,0 +1,6 @@
+{
+  "appId": "com.kaboomprojecbestprac.com",
+  "appName": "kaboomprojectbestprac",
+  "webDir": "dist",
+  "bundledWebRuntime": false
+}
