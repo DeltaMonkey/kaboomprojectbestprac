@@ -1,9 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
+
+    namespace 'com.kaboomprojectbestprac.app'
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "com.kaboomprojecbestprac.com"
+        applicationId "com.kaboomprojectbestprac.app"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

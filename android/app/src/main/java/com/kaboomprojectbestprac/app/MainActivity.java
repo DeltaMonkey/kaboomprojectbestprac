@@ -1,4 +1,4 @@
-package com.kaboomprojecbestprac.com;
+package com.kaboomprojectbestprac.app;
 
 import com.getcapacitor.BridgeActivity;
 

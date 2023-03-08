@@ -1,0 +1,5 @@
+***android\app\src\main\AndroidManifest.xml***
+"1 START"
+manifest > application > activity
+                                android:screenOrientation="userLandscape">
+"1 END"

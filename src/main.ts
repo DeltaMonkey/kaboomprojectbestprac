@@ -1,35 +1,21 @@
 import kaboom from 'kaboom'
-import { KaboomCtx } from 'kaboom'
+import { Capacitor } from '@capacitor/core';
+import { StatusBar } from '@capacitor/status-bar';
+import { NavigationBar } from '@hugotomazi/capacitor-navigation-bar'
 
-const k = kaboom({
-    global: true,
-    scale: 1,
-    debug: true,
-    background: [0,0,0,1]
-})
+let k = kaboom()
 
-k.loadRoot('./assets/')
-k.loadSprite('block', 'block.png')
+const hideStatusBar = async () => {
+    await StatusBar.hide() //bu kodla zaman ayarlı olarak üstteki barı gizlememiz gerekiyor
+    await NavigationBar.hide() //bu kodla zaman ayarlı olarak alttaki nav barı gizlememiz gerekiyor
+};
 
-function createLabel(k: KaboomCtx, message: string) {
-    k.add([
-        k.text(message, {
-            size: 32
-        }),
-        k.pos(k.width() * 0.5, k.height() * 0.5),
-        k.color(255,255,255),
-        k.origin('center')
-    ])
-
-    k.add([
-        k.sprite('block'),
-        k.pos(100, 100)
-    ])
+if (Capacitor.getPlatform() === 'android') {
+    hideStatusBar().then(() => 
+    {
+        k = kaboom()
+        console.log("İşler Tamam")
+    })
+}else {
+    k = kaboom()
 }
-
-k.scene('main', () => {
-    createLabel(k, 'Helllo to Kaboom.js!') 
-})
-
-k.go('main')
-

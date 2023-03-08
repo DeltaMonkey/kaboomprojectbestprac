@@ -3,13 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "parcel src/index.html -p 3000",
+    "start": "robocopy assets dist/assets && parcel src/index.html -p 3000",
     "build": "parcel build src/index.html && robocopy assets dist/assets",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@awesome-cordova-plugins/android-full-screen": "^6.3.0",
+    "@capacitor/android": "^4.7.0",
+    "@capacitor/cli": "^4.7.0",
+    "@capacitor/core": "^4.7.0",
+    "@capacitor/status-bar": "^4.1.1",
+    "@hugotomazi/capacitor-navigation-bar": "^2.0.0",
+    "cordova-plugin-fullscreen": "^1.3.0",
     "kaboom": "^2000.2.10"
   },
   "devDependencies": {
