@@ -1,6 +1,7 @@
 import kaboom, { KaboomCtx } from 'kaboom'
 import { CapacitorConsts } from './constants/capacitor.consts';
 import CapacitorInit from './initializations/capacitor.init';
+import * as dotenv from 'dotenv';
 
 export class Main {
 
@@ -18,6 +19,8 @@ export class Main {
 
     public init() {
         this._projectInit();
+
+        dotenv.config();
     }
 
     //kaboom and if requires other generic init operations
@@ -39,6 +42,6 @@ export class Main {
 
     private _kaboomInit(): void{
         /*this.kaboom = **/kaboom();
-        console.log("kaboom initialization finished.");
+        console.log(`${process.env.PROJECT_NAME} initialization finished.`);
     }
 }
