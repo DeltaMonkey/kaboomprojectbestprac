@@ -7,6 +7,8 @@ manifest > application > activity
 
 "2 START"
 
+rename android/app/src/main/res/values/strings_SAMPLE.xml to android/app/src/main/res/values/strings.xml
+
 In file android/app/src/main/AndroidManifest.xml, add the following XML elements under <manifest><application> :
 
 <meta-data
