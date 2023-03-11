@@ -4,5 +4,5 @@
     <string name="title_activity_main">kaboomprojectbestprac</string>
     <string name="package_name">com.kaboomprojectbestprac.app</string>
     <string name="custom_url_scheme">com.kaboomprojectbestprac.app</string>
-    <string name="admob_app_id">[API_KEY]</string>
+    <string name="admob_app_id">[API_KEY_]</string>
 </resources>
