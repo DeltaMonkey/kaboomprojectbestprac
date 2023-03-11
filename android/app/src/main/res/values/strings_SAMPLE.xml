@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">kaboomprojectbestprac</string>
-    <string name="title_activity_main">kaboomprojectbestprac</string>
-    <string name="package_name">com.kaboomprojectbestprac.app</string>
-    <string name="custom_url_scheme">com.kaboomprojectbestprac.app</string>
-    <string name="admob_app_id">ca-app-pub-3881718052962548~9897358677</string>
+    <!--<string name="app_name">kaboomprojectbestprac</string>
+        <string name="title_activity_main">kaboomprojectbestprac</string>
+        <string name="package_name">com.kaboomprojectbestprac.app</string>
+        <string name="custom_url_scheme">com.kaboomprojectbestprac.app</string>
+        <string name="admob_app_id">[APP_ADMOB_ID]</string>-->
 </resources>

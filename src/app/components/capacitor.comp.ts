@@ -3,7 +3,7 @@ import { Animation, StatusBar } from '@capacitor/status-bar';
 import { NavigationBar } from '@hugotomazi/capacitor-navigation-bar';
 import { CapacitorConsts } from '../constants/capacitor.consts';
 
-export default class CapacitorInit {
+export default class CapacitorComp {
 
     public async init(): Promise<string>{
         switch(Capacitor.getPlatform()) {

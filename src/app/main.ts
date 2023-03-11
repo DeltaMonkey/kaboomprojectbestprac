@@ -1,18 +1,21 @@
 import kaboom, { KaboomCtx } from 'kaboom'
 import { CapacitorConsts } from './constants/capacitor.consts';
-import CapacitorInit from './initializations/capacitor.init';
-import { AdMob } from '@capacitor-community/admob';
+import CapacitorComp from './components/capacitor.comp';
+import AdmobComp from './components/admob.comp';
 import * as dotenv from 'dotenv';
 
 export class Main {
 
     //private kaboom: KaboomCtx;
 
-    private _capacitorInit: CapacitorInit;
+    private _capacitorComp: CapacitorComp;
+    private _admobComp: AdmobComp;
+    private _platform; string;
 
     constructor() {
         //new classes
-        this._capacitorInit = new CapacitorInit(); //if name ends init.ts I can run the init of class and can attach then
+        this._capacitorComp = new CapacitorComp(); //if name ends init.ts I can run the init of class and can attach then
+        this._admobComp = new AdmobComp();
 
         //init all class operations
         this.init();
@@ -26,12 +29,17 @@ export class Main {
 
     //kaboom and if requires other generic init operations
     private _projectInit() {
-        this._capacitorInit.init().then((platform: string) => 
+        this._capacitorComp.init().then((platform: string) => 
         {
-            if(platform === CapacitorConsts.PLAFORM.WEB) this._kaboomInit();
+            this._platform = platform;
+            if(this._platform === CapacitorConsts.PLAFORM.WEB) this._kaboomInit();
             else this._lazyKaboomInit();
+        }).then(() => {
+            this._admobComp.init(this._platform).then(() => {
+                this._admobComp.showBanner();
+            });
+
         })
-        this._admobInit();
     }
 
     //till hide status and navbar we made a dummy waiting
@@ -44,10 +52,5 @@ export class Main {
     private _kaboomInit(): void{
         /*this.kaboom = **/kaboom();
         console.log(`${process.env.PROJECT_NAME} initialization finished.`);
-    }
-
-    private async _admobInit(): Promise<void> {
-        const { status } = await AdMob.trackingAuthorizationStatus();
-        console.log(`Status :${status}`);
     }
 }
