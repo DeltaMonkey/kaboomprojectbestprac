@@ -1,6 +1,7 @@
 import kaboom, { KaboomCtx } from 'kaboom'
 import { CapacitorConsts } from './constants/capacitor.consts';
 import CapacitorInit from './initializations/capacitor.init';
+import { AdMob } from '@capacitor-community/admob';
 import * as dotenv from 'dotenv';
 
 export class Main {
@@ -18,9 +19,9 @@ export class Main {
     }
 
     public init() {
-        this._projectInit();
-
         dotenv.config();
+
+        this._projectInit();
     }
 
     //kaboom and if requires other generic init operations
@@ -29,8 +30,8 @@ export class Main {
         {
             if(platform === CapacitorConsts.PLAFORM.WEB) this._kaboomInit();
             else this._lazyKaboomInit();
-            
-        }) 
+        })
+        this._admobInit();
     }
 
     //till hide status and navbar we made a dummy waiting
@@ -43,5 +44,10 @@ export class Main {
     private _kaboomInit(): void{
         /*this.kaboom = **/kaboom();
         console.log(`${process.env.PROJECT_NAME} initialization finished.`);
+    }
+
+    private async _admobInit(): Promise<void> {
+        const { status } = await AdMob.trackingAuthorizationStatus();
+        console.log(`Status :${status}`);
     }
 }
